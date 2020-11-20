@@ -1,0 +1,218 @@
+{
+	"info": {
+		"_postman_id": "b97fdadd-5e56-4125-bae9-137e5c1c9132",
+		"name": "desafioVR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "consulta pedido",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/v1/pedidos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"v1",
+						"pedidos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "criar pedido",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"Ativo\",\r\n    \"dataVencimento\": \"2020-11-18T00:12:34.791+00:00\",\r\n    \"itens\":[\r\n        {\r\n            \"descricao\": \"item 22\"\r\n        },\r\n        {\r\n            \"descricao\": \"item 23\"\r\n        }\r\n    ] \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/v1/pedidos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"v1",
+						"pedidos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lista pedidos page",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoaWdvcnRhbXBpZXJpQGhvdG1haWwuY29tIiwiZXhwIjoxNjA1MDUzMDA3fQ.nCKYx0A8ZyGY9qpRL7fdX3BjYQQpG7ZLYYjEKfv-W-mKCNK8XMo9YTDkdW0-KHv1unykCyBWz3wPgBHyzZH9hQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/v1/pedidos/page?page=0&linesPerPage=10&orderBy=idPedido&direction=ASC",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"v1",
+						"pedidos",
+						"page"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "linesPerPage",
+							"value": "10"
+						},
+						{
+							"key": "orderBy",
+							"value": "idPedido"
+						},
+						{
+							"key": "direction",
+							"value": "ASC"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update pedido",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idPedido\": 4,\r\n    \"status\": \"ATIVO\",\r\n    \"dataVencimento\": \"2020-11-18T00:12:34.791+00:00\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/v1/pedidos/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"v1",
+						"pedidos",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete pedido",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/v1/pedidos/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"v1",
+						"pedidos",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update status",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/v1/pedidos/1/status/ATIVO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"v1",
+						"pedidos",
+						"1",
+						"status",
+						"ATIVO"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update data vencimento",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/v1/pedidos/1/21-11-2020",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"v1",
+						"pedidos",
+						"1",
+						"21-11-2020"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "dataVencimento",
+							"value": "19-11-2020",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
